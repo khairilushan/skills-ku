@@ -30,7 +30,7 @@ Act as a thin coordinator. Delegate semantic work to fresh isolated agents and r
   |---|---|---|
   | Context agents | `sonnet` | `gpt-5.6-luna` (fast) |
   | Writers and fixers | `opus` | `gpt-5.6-terra` (lower-cost capable) |
-  | Planner, plan-reviser, critic, reviewers, and verifiers | `fable` | `gpt-5.6` / `gpt-5.6-sol` (flagship) |
+  | Planner, plan-reviser, critic, reviewers, and verifiers | `fable` | `gpt-5.6-sol` (flagship) |
 
 - Never reuse a planner as critic, a writer as reviewer, or a reviewer across review rounds.
 - Treat isolation as context isolation, not filesystem isolation. All agents share the workspace.
