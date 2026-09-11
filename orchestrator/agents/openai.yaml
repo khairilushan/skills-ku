@@ -1,4 +1,0 @@
-interface:
-  display_name: "Orchestrator"
-  short_description: "Run an isolated-agent development pipeline"
-  default_prompt: "Use $orchestrator to resolve the supplied task, plan document, or Jira ticket, then plan, implement, review, fix, and report it with fresh isolated agents."

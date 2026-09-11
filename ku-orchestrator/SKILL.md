@@ -1,11 +1,11 @@
 ---
-name: orchestrator
-description: Automate coding changes through an isolated-agent pipeline for context, planning, independent criticism, implementation, review/fix rounds, and reporting. Use only when the user explicitly invokes `$orchestrator`, `/orchestrator`, or directly asks to orchestrate work or use isolated agents. Do not auto-trigger from task size, file count, integration boundaries, or unfamiliar code.
+name: ku-orchestrator
+description: Automate coding changes through an isolated-agent pipeline for context, planning, independent criticism, implementation, review/fix rounds, and reporting. Use only when the user explicitly invokes `$ku-orchestrator`, `/ku-orchestrator`, or directly asks to orchestrate work or use isolated agents. Do not auto-trigger from task size, file count, integration boundaries, or unfamiliar code.
 argument-hint: "[task | plan document | Jira ticket(s)]"
 disable-model-invocation: true
 ---
 
-# Orchestrator
+# Ku Orchestrator
 
 Act as a thin coordinator. Delegate semantic work to fresh isolated agents and retain only the task, phase handoffs, stopping decisions, and final reporting. Do not add broker protocols, durable receipts, tree attestations, or custom transaction machinery.
 
@@ -31,6 +31,8 @@ Act as a thin coordinator. Delegate semantic work to fresh isolated agents and r
   | Context agents | `sonnet` | `gpt-5.6-luna` (fast) |
   | Writers and fixers | `opus` | `gpt-5.6-terra` (lower-cost capable) |
   | Planner, plan-reviser, critic, reviewers, and verifiers | `fable` | `gpt-5.6-sol` (flagship) |
+
+- A model override in the current user request takes precedence over the table for the named role only. Use the requested model identifier exactly for every spawn of that role during the current run. Unnamed roles keep their defaults. If the runtime rejects or cannot access the requested model, fall back to the session model and record the fallback in coordinator state.
 
 - Never reuse a planner as critic, a writer as reviewer, or a reviewer across review rounds.
 - Treat isolation as context isolation, not filesystem isolation. All agents share the workspace.
