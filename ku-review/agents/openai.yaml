@@ -1,0 +1,4 @@
+interface:
+  display_name: "KU Review"
+  short_description: "Run a strict, read-only code review."
+  default_prompt: "Use $ku-review to review the current changes."
